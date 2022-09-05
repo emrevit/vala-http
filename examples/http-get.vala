@@ -240,8 +240,3 @@ int main( string[] args )
 
     return 0;
 }
-/* IGNORE
-https://upload.wikimedia.org/wikipedia/commons/d/dd/Carina_Nebula_Detail.jpg  - 6.10 MB
-https://upload.wikimedia.org/wikipedia/commons/6/67/Swift_Fox.jpg             - 377 KB
-https://upload.wikimedia.org/wikipedia/commons/c/c1/Keulemans_common_fox.png  - 624 KB
-*/

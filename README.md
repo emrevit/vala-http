@@ -31,7 +31,7 @@ The following snippet shows the basic usage of the library:
 ```vala
 var http = new Http.Client();
 
-try {    
+try {
     var response = http.get( "https://api.ipify.org" );
     if ( response.status.code == 200 ){
         stdout.printf(@"My public IP address is: $(response)\n");
@@ -41,7 +41,7 @@ try {
 }
 ```
 
->If you haven't compiled and used libraries in Vala before, you can check out this article *(checking the Makefile in the project root might help as well)*.
+>If you haven't compiled and used libraries in Vala before, you can check out [this article](https://wiki.gnome.org/Projects/Vala/SharedLibSample) *(checking the Makefile in the project root might help as well)*.
 
 The library itself consists of a single source file, which means you can easily add it to a project and compile it with the rest of the source files. For instance, you can save the snippet above into a file and compile it directly using the command below:
 
@@ -63,21 +63,21 @@ Response post (string url, string data, Gee.HashMap<string,string>? headers = nu
 A response object has the following structure:
 
 ```js
-{	
-	status : {
-		protocol_version: string,
-		code: uint,
-		text: string 
-	},
-	// Response headers
-	headers: Gee.HashMap<string,string>,
-	// Response body
-	payload : {		
-		data : uint8[],
-		length : ssize_t,
-		// When data is compressed, the actual size and the download size will differ.
-		download_size: ssize_t
-	}
+{
+    status : {
+        protocol_version: string,
+        code: uint,
+        text: string
+    },
+    // Response headers
+    headers: Gee.HashMap<string,string>,
+    // Response body
+    payload : {
+        data : uint8[],
+        length : ssize_t,
+        // When data is compressed, the actual size and the download size will differ.
+        download_size: ssize_t
+    }
 }
 ```
 
@@ -90,7 +90,7 @@ var data = new Gee.HashMap<string,string>();
 data["name"]  = "John Doe";
 data["email"] = "john@example.com";
 
-try {    
+try {
     var response = http.post_form( "example.com", data );
     if ( response.status.code == 200 ){
         stdout.printf(@"$(response)\n");
@@ -116,7 +116,7 @@ var post_headers = new Gee.HashMap<string,string>();
 post_headers["Content-Type"]   = "application/x-www-form-urlencoded";
 post_headers["Content-Length"] = encoded_data.length.to_string();
 
-try {    
+try {
     var response = http.post( "example.com", encoded_data, post_headers );
     if ( response.status.code == 200 ){
         stdout.printf(@"$(response)\n");
@@ -134,7 +134,7 @@ var http = new Http.Client(){
            };
 ```
 
-When a compressed response body is receiced, it will be decompressed automatically. The `response.payload.data` array will always contain the decompressed data. 
+When a compressed response body is receiced, it will be decompressed automatically. The `response.payload.data` array will always contain the decompressed data.
 
 And lastly, you can change the connection timeout by setting the `timeout` property:
 

@@ -9,16 +9,21 @@ This library is written as a personal project in a short amount of time. Though 
 Building from the Source
 --------------------------------------------
 
-Before proceeding, make sure you have the essential build tools, Glib development package(s) and the Vala compiler installed on your system. To build the library run the `make` command in the project folder:
+Before proceeding, make sure you have the essential build tools, `meson`, `ninja`, Glib development package(s) and the Vala compiler installed on your system. Firstly run the `meson setup build` in the project folder:
 
 ```shell
-$ make
+$ meson setup build
 ```
 
-After a successful compilation, you can find a sample client application located under the `./build` directory. The client application functions like `wget` and downloads any number of given URLs into the working directory:
+Then, to build the library:
+```shell
+$ meson compile -C build
+```
+
+After a successful compilation, you can find a sample client application located under the `./build/examples` directory. The client application functions like `wget` and downloads any number of given URLs into the working directory:
 
 ```shell
-$ LD_LIBRARY_PATH=./build/lib ./build/bin/http-get \
+$ ./build/http-get \
      https://upload.wikimedia.org/wikipedia/commons/d/dd/Carina_Nebula_Detail.jpg \
      https://developer.gnome.org/documentation/
 ```
